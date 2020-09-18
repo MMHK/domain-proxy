@@ -34,3 +34,11 @@ func Test_createNewDomainConfig(t *testing.T) {
 	//tmpPath := filepath.Join(config.DomainCfgSaveDir, filename)
 	//defer os.Remove(tmpPath)
 }
+func Test_ReloadService(t *testing.T) {
+	err := ReloadService(`echo "Hello~"`)
+	if err != nil {
+		t.Error(err)
+		t.Fail()
+		return
+	}
+}

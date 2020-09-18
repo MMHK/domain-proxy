@@ -2,10 +2,12 @@ package lib
 
 import (
 	"bytes"
+	"errors"
 	"io/ioutil"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"text/template"
 )
 
@@ -31,7 +33,12 @@ func Run(cmd *exec.Cmd) (*bytes.Buffer, error) {
 }
 
 func ReloadService(cmd string) (err error) {
-	buf, err := Run(exec.Command(cmd))
+	params := strings.Split(cmd, " ")
+
+	if len(params) < 0 {
+		return errors.New("params error")
+	}
+	buf, err := Run(exec.Command(params[0], params[1:]...))
 
 	log.Infof("run cmd:%s, result:%s", cmd, buf.String())
 
