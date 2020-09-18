@@ -1,0 +1,8 @@
+{
+  "listen": "{$HOST}",
+  "reload-cmd": "{$RELOAD}",
+  "config-template-path": "{$TEMPLATE_PATH}",
+  "web_root": "{$ROOT}",
+  "save-path": "{$SAVE_PATH}",
+  "filename-format": "{{.Domain}}.conf"
+}

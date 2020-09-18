@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+        ServerName {{.Domain}}
+        ServerAdmin webmaster@localhost
+
+        ProxyPreserveHost On
+        ProxyRequests Off
+        ProxyPass / http://{{.IP}}/
+        ProxyPassReverse / http://{{.IP}}/
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+</VirtualHost>

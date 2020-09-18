@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/add": {
+      "post": {
+        "description": "添加域名配置",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "operationId": "addDomain",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "需要增加的三级域名",
+            "name": "domain",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "绑定的内网IP地址（IPv4）",
+            "name": "ip",
+            "in": "formData",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/reload": {
+      "get": {
+        "description": "触发web service 服务重载",
+        "produces": [
+          "application/json"
+        ],
+        "operationId": "reloadService",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/remove": {
+      "post": {
+        "description": "移除域名配置",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "operationId": "removeDomain",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "需要移除的三级域名",
+            "name": "domain",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "绑定的内网IP地址（IPv4）",
+            "name": "ip",
+            "in": "formData",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    }
+  }
+}
